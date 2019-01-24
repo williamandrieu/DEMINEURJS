@@ -8,9 +8,9 @@ var randArray = [];
 var coucou = "coucou";
 
 
-function bomb_generation(nbBomb,NbCase) {
+function bomb_generation(nbBomb,nbCase) {
 	for (var i = 0; i < nbBomb; i++) {
-		randArray.push(int_aleatoire(NbCase-1));
+		randArray.push(int_aleatoire(nbCase-1));
 	}
 }
 
@@ -34,19 +34,39 @@ function create_grid(width,height,nbBomb) {
 				$(newTr).append(newTd);
 				$(newTd).append(newDiv);
 				divArray.push(newDiv);
+				newDiv.attr('class', 'case'+(divArray.length-1));
 			}
-	} 
+	} bomb_generation(nbBomb,width*height);
 	for (var i = 0; i < divArray.length; i++) {
-		divArray[i].attr('style','background-color:red;width:20px;height:20px;');
-		divArray[i].attr('onclick','onBomb(divArray[i])');
+		if (randArray.includes(i)) {
+			divArray[i].attr('style','background-color:red;width:24px;height:24px;');
+			divArray[i].attr('class','bomb');
+		}else{
+		divArray[i].attr('style','background-color:red;width:24px;height:24px;');
+		}
+		$(divArray[i]).attr('onclick','onBomb(this)');
 
 	}
-	bomb_generation(nbBomb,width*height);
+	
 	console.log(randArray);
 }
 
-function onBomb() {
-	if (true) {}
+function onBomb(element) {
+	console.log(divArray);
+	console.log($(element));
+	console.log(divArray.indexOf($(element)));
+	$("div.bomb").siblings().attr('style','background-color:blue;width:24px;height:24px;');
+	if($(element).attr('class')){
+		$(element).attr('style','background-color:blue;width:24px;height:24px;background-image: url("./bomb2.png");');
+		console.log("boum!!");
+	} else {
+		$(element).attr('style','background-color:white;width:24px;height:24px;');
+		nextBomb();
+	}
+}
+
+function nextBomb() {
+
 }
 
 
