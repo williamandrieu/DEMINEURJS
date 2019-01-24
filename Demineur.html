@@ -3,6 +3,25 @@
 <head>
 	<title>Demineur</title>
 	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+		div {
+			width: 50px;
+			height: 50px;
+			background-color: grey;
+		}
+		#container {
+			display: flex;
+			flex: wrap;
+			width: 500px;
+			height: 500px;
+		}
+		.div1 {
+			width: 50px;
+			height: 50px;
+			margin: 2px;
+			border: 2px solid white;
+		}
+	</style>
 </head>
 <h1><center>Démineur</center></h1>
 <select>
@@ -13,7 +32,9 @@
 </select>
 <center><button>Nouvelle Partie</button></center>
 <a><left>Time : 00:00</left></a>
-
+<div id="container">
+<div id="master"></div>
+</div>
 <script type="text/javascript" src="minesweeper.js"></script>
 <body>
 
