@@ -8,6 +8,7 @@ var randArray = [];
 var coucou = "coucou";
 var gridHeight;
 var me;
+var a = [];
 
 
 
@@ -68,11 +69,12 @@ function onBomb(element) {
 	} else {
 		$(element).attr('style','background-color:white;width:24px;height:24px;');
 		nextBomb(element, caseNumberArray[1]);
-		emptyCase(caseNumberArray[1]);
+		
 	}
 }
 
 function nextBomb(element,index) {
+	
 	me = element;
 	var count = 0;
 	index = parseInt(index);
@@ -115,40 +117,42 @@ function nextBomb(element,index) {
 
 
 function emptyCase(index) {
-	//for (var i = 0; i < divArray.length-1; i++) {
-		
-	sleep(1000);
+	//for (var i = 0; i < a.length; i++) {
+	//	var index = a[i]
 	
+		//console.log($(document.getElementsByClassName('case '+index)).text()+"<<<<<<<<<<<<")
 		if($(document.getElementsByClassName('case '+index)).text() == "0"){
-			console.log("first if");
-			sleep(1000);
 			if ((index+1) % gridHeight == 0) {
-				console.log("second if");
-				sleep(1000);
 				$(document.getElementsByClassName('case '+(parseInt(index)+gridHeight))).click();
-				sleep(1000);
 				$(document.getElementsByClassName('case '+(parseInt(index)-gridHeight))).click();
-				sleep(1000);
 				$(document.getElementsByClassName('case '+(parseInt(index)-1))).click();
+				return true;
 			}else {
-				console.log("else ");
-				sleep(1000);
+				
+				
 				$(document.getElementsByClassName('case '+(parseInt(index)+gridHeight))).click();
 				$(document.getElementsByClassName('case '+(parseInt(index)-gridHeight))).click();
 				$(document.getElementsByClassName('case '+(parseInt(index)-1))).click();
 				$(document.getElementsByClassName('case '+(parseInt(index)+1))).click();
-				}
+				return true;
+			}
 			//$(document.getElementsByClassName('case '+((index+gridHeight)+1))).click();
 			//$(document.getElementsByClassName('case '+(index+gridHeight)-1)).click();
 			//$(document.getElementsByClassName('case '+((index-gridHeight)+1))).click();
 			//$(document.getElementsByClassName('case '+((index-gridHeight)-1))).click();
+			return true;
 			
-			
-		//}
+		}
 	
 }
-}
+//}
+function function_name() {
+	for (var i = 0; emptyCase(i) == true; i++) {
+		//console.log("bite");
+		emptyCase(i);
 
+	}
+}
 
 function timer(){
 		var time_avant= Date.now();
