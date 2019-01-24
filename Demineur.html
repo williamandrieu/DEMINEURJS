@@ -21,6 +21,23 @@
 			margin: 2px;
 			border: 2px solid white;
 		}
+		input {
+			background:url("https://www.w3schools.com/w3css/img_lights.jpg") no-repeat;
+		}
+		#trigger {
+  display: none;
+}
+.checker {
+  background-image: url(https://www.w3schools.com/w3css/img_lights.jpg);
+  background-position: left center;
+  background-size: auto 100%;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
+#trigger:checked + .checker {
+  background-position: right center;
+}
 	</style>
 </head>
 <h1><center>Démineur</center></h1>
@@ -32,8 +49,15 @@
 </select>
 <center><button>Nouvelle Partie</button></center>
 <a><left>Time : 00:00</left></a>
+
 <div id="container">
-<div id="master"></div>
+	<table>
+		<tbody id="tbody">
+			<div id="grid">
+				
+			</div>
+		</tbody>
+	</table>
 </div>
 <script type="text/javascript" src="minesweeper.js"></script>
 <body>
