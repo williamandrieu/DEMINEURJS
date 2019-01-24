@@ -12,20 +12,12 @@ function bomb_generation(nbBomb,NbCase) {
 	for (var i = 0; i < nbBomb; i++) {
 		randArray.push(int_aleatoire(NbCase-1));
 	}
-
-	for (var j = 0; j <= randArray.length; j++) {
-			console.log(randArray[j]);
-			/*if(randArray.includes(j)){
-				
-				z++;
-			}*/
-		}
 }
-bomb_generation(10,81);
-console.log(randArray);
 
 
-function create_grid(width,height) {
+
+
+function create_grid(width,height,nbBomb) {
 	var divMaster = document.getElementById('master');
 	var divGrid = document.getElementById('grid');
 	var tBody = document.getElementById('tbody');
@@ -46,13 +38,16 @@ function create_grid(width,height) {
 	} 
 	for (var i = 0; i < divArray.length; i++) {
 		divArray[i].attr('style','background-color:red;width:20px;height:20px;');
-		divArray[i].attr('onclick','console.log(coucou)');
+		divArray[i].attr('onclick','onBomb(divArray[i])');
 
 	}
+	bomb_generation(nbBomb,width*height);
+	console.log(randArray);
+}
 
+function onBomb() {
+	if (true) {}
 }
 
 
-
-
-create_grid(14,14);
+create_grid(9,9,10);
