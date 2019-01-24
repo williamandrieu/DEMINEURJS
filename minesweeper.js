@@ -12,6 +12,14 @@ function bomb_generation(nbBomb,NbCase) {
 	for (var i = 0; i < nbBomb; i++) {
 		randArray.push(int_aleatoire(NbCase-1));
 	}
+
+	for (var j = 0; j <= randArray.length; j++) {
+			console.log(randArray[j]);
+			/*if(randArray.includes(j)){
+				
+				z++;
+			}*/
+		}
 }
 bomb_generation(10,81);
 console.log(randArray);
