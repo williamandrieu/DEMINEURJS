@@ -1,5 +1,21 @@
+
+function int_aleatoire(max) {
+	return (Math.floor(max*Math.random()));
+}
+
 var divArray = []; 
+var randArray = [];
 var coucou = "coucou";
+
+
+function bomb_generation(nbBomb,NbCase) {
+	for (var i = 0; i < nbBomb; i++) {
+		randArray.push(int_aleatoire(NbCase-1));
+	}
+}
+bomb_generation(10,81);
+console.log(randArray);
+
 
 function create_grid(width,height) {
 	var divMaster = document.getElementById('master');
@@ -27,6 +43,8 @@ function create_grid(width,height) {
 	}
 
 }
+
+
 
 
 create_grid(14,14);
