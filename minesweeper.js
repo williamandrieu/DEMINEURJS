@@ -44,10 +44,10 @@ function create_grid(width,height,nbBomb) {
 	} bomb_generation(nbBomb,width*height);
 	for (var i = 0; i < divArray.length; i++) {
 		if (randArray.includes(i)) {
-			divArray[i].attr('style','background-color:blue;width:24px;height:24px;');
+			divArray[i].attr('style','background-color:blue;width:20px;height:20px;background-image: url("./normal.png");');
 			divArray[i].addClass('bomb');
 		}else{
-		divArray[i].attr('style','background-color:red;width:24px;height:24px;');
+		divArray[i].attr('style','background-color:red;width:20px;height:20px;background-image: url("./normal.png");');
 		}
 		$(divArray[i]).attr('onclick','onBomb(this)');
 
@@ -62,10 +62,10 @@ function onBomb(element) {
 	caseNumberArray = caseNumber.split(" ");
 	
 	if(randArray.includes(parseInt(caseNumberArray[1]))){
-		$(element).attr('style','background-color:blue;width:24px;height:24px;background-image: url("./bomb2.png");');
+		$(element).attr('style','background-color:blue;width:20px;height:20px;background-image: url("./bomb.png");');
 		console.log("boum!!");
 	} else {
-		$(element).attr('style','background-color:white;width:24px;height:24px;');
+		$(element).attr('style','width:20px;height:20px;background-image: url("./empty.png");');
 		nextBomb(element, caseNumberArray[1]);
 	}
 }
@@ -98,10 +98,59 @@ function nextBomb(element,index) {
 	}
 	var tmp = 'case '+index;
 	
-	$(document.getElementsByClassName(tmp)).text(count);
+	if (count == 1){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./1.png");');
+			}
+	if (count == 2){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./2.png");');
+			}
+	if (count == 3){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./3.png");');
+			}
+	if (count == 4){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./4.png");');
+			}
+	if (count == 5){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./5.png");');
+	}
+	if (count == 6){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./6.png");');
+			}
+	if (count == 7){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./7.png");');
+			}
+	if (count == 8){
+				$(element).attr('style','width:20px;height:20px;background-image: url("./8.png");');
+			}
+
 	console.log(count);
 }
 
+
+/*function nextCV(element, index){
+	index = parseInt(index);
+	if ((index+1) % gridHeight == 0) {
+		console.log("index+1");
+		if(empty.includes(parseInt(index+gridHeight))){console.log("bj");}
+		if(empty.includes(parseInt(index-gridHeight))){console.log("bj");}
+		if(empty.includes(parseInt(index-1))){console.log("bj");}
+		//if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
+		//if(randArray.includes(parseInt(index+(gridHeight-1)))){console.log(index+(gridHeight-1)); count++;}
+		//if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
+		if(empty.includes(parseInt((index-gridHeight)-1))){console.log("bitemolle");}
+	}
+	else{
+		console.log("index+>>>>>>>");
+		if(empty.includes(parseInt(index+(gridHeight+1)))){console.log("bj");}
+		if(empty.includes(parseInt(index+(gridHeight-1)))){console.log("bj");}
+		if(empty.includes(parseInt(index-(gridHeight+1)))){console.log("bj");}
+		if(empty.includes(parseInt(index-(gridHeight-1)))){console.log("bj");}
+		if(empty.includes(parseInt(index+gridHeight))){console.log("bj");}
+		if(empty.includes(parseInt(index-gridHeight))){console.log("bj");}
+		if(empty.includes(parseInt(index-1))){console.log("bj");}
+		if(empty.includes(parseInt(index+1))){console.log("bj");}
+	}
+}*/
 
 function timer(){
 		var time_avant= Date.now();
