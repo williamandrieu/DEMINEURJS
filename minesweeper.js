@@ -8,9 +8,9 @@ var randArray = [];
 var coucou = "coucou";
 
 
-function bomb_generation(nbBomb,NbCase) {
+function bomb_generation(nbBomb,nbCase) {
 	for (var i = 0; i < nbBomb; i++) {
-		randArray.push(int_aleatoire(NbCase-1));
+		randArray.push(int_aleatoire(nbCase-1));
 	}
 }
 
@@ -47,6 +47,19 @@ function create_grid(width,height,nbBomb) {
 
 function onBomb() {
 	if (true) {}
+}
+
+
+function timer(){
+		var time_avant= Date.now();
+		timer=setInterval(function() {
+			time_sec=Math.floor(((Date.now()-time_avant)%60000)/1000);
+			time_sec=(time_sec+"").padStart(2, '0');
+			time_min=Math.floor(((Date.now()-time_avant)%3600000)/60000);
+			time_min=(time_min+"").padStart(2, '0');
+			document.getElementById("sec").innerHTML=time_sec;
+			document.getElementById("min").innerHTML=time_min;}, 5);
+
 }
 
 
