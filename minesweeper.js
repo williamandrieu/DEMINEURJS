@@ -94,4 +94,17 @@ function nextBomb(element,index) {
 }
 
 
+function timer(){
+		var time_avant= Date.now();
+		timer=setInterval(function() {
+			time_sec=Math.floor(((Date.now()-time_avant)%60000)/1000);
+			time_sec=(time_sec+"").padStart(2, '0');
+			time_min=Math.floor(((Date.now()-time_avant)%3600000)/60000);
+			time_min=(time_min+"").padStart(2, '0');
+			document.getElementById("sec").innerHTML=time_sec;
+			document.getElementById("min").innerHTML=time_min;}, 5);
+
+}
+
+
 create_grid(9,9,10);
