@@ -73,15 +73,24 @@ function onBomb(element) {
 function nextBomb(element,index) {
 	var count = 0;
 	index = parseInt(index);
-	console.log(index+1);
-	console.log((index+1)%9);
+	//console.log(index+1);
+	//console.log((index+1)%gridHeight);
 	if ((index+1) % gridHeight == 0) {
-		console.log("index+1");
-		if(randArray.includes(parseInt(index+gridHeight))){ count++;}
-		if(randArray.includes(parseInt(index-gridHeight))){ count++;}
-		if(randArray.includes(parseInt(index-1))){ count++;}
-	}else{
+		//console.log("index+1");
+		if(randArray.includes(parseInt(index+gridHeight))){console.log(index+gridHeight); count++;}
+		if(randArray.includes(parseInt(index-gridHeight))){console.log(index-gridHeight); count++;}
+		if(randArray.includes(parseInt(index-1))){console.log(index+gridHeight); count++;}
+		//if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
+		if(randArray.includes(parseInt(index+(gridHeight-1)))){console.log(index+(gridHeight-1)); count++;}
+		//if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
+		if(randArray.includes(parseInt(index-(gridHeight-1)))){console.log(index-(gridHeight-1)); count++;}
+	}
+	else{
 		console.log("index+>>>>>>>");
+		//if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
+		if(randArray.includes(parseInt(index+(gridHeight-1)))){ count++;}
+		if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
+		if(randArray.includes(parseInt(index-(gridHeight-1)))){ count++;}
 		if(randArray.includes(parseInt(index+gridHeight))){ count++;}
 		if(randArray.includes(parseInt(index-gridHeight))){ count++;}
 		if(randArray.includes(parseInt(index-1))){ count++;}
