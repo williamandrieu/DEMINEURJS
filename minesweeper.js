@@ -76,18 +76,18 @@ function nextBomb(element,index) {
 	//console.log(index+1);
 	//console.log((index+1)%gridHeight);
 	if ((index+1) % gridHeight == 0) {
-		//console.log("index+1");
+		console.log("index+1");
 		if(randArray.includes(parseInt(index+gridHeight))){console.log(index+gridHeight); count++;}
 		if(randArray.includes(parseInt(index-gridHeight))){console.log(index-gridHeight); count++;}
 		if(randArray.includes(parseInt(index-1))){console.log(index+gridHeight); count++;}
 		//if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
-		if(randArray.includes(parseInt(index+(gridHeight-1)))){console.log(index+(gridHeight-1)); count++;}
+		//if(randArray.includes(parseInt(index+(gridHeight-1)))){console.log(index+(gridHeight-1)); count++;}
 		//if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
-		if(randArray.includes(parseInt(index-(gridHeight-1)))){console.log(index-(gridHeight-1)); count++;}
+		if(randArray.includes(parseInt((index-gridHeight)-1))){console.log("bitemolle"); count++;}
 	}
 	else{
 		console.log("index+>>>>>>>");
-		//if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
+		if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
 		if(randArray.includes(parseInt(index+(gridHeight-1)))){ count++;}
 		if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
 		if(randArray.includes(parseInt(index-(gridHeight-1)))){ count++;}
