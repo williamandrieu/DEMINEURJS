@@ -7,6 +7,7 @@ var divArray = [];
 var randArray = [];
 var coucou = "coucou";
 var gridHeight;
+var me;
 
 
 
@@ -59,7 +60,7 @@ function create_grid(width,height,nbBomb) {
 function onBomb(element) {
 	
 	var caseNumber = $(element).attr('class');
-	caseNumberArray = caseNumber.split(" ");
+	var caseNumberArray = caseNumber.split(" ");
 	
 	if(randArray.includes(parseInt(caseNumberArray[1]))){
 		$(element).attr('style','background-color:blue;width:24px;height:24px;background-image: url("./bomb2.png");');
@@ -67,26 +68,38 @@ function onBomb(element) {
 	} else {
 		$(element).attr('style','background-color:white;width:24px;height:24px;');
 		nextBomb(element, caseNumberArray[1]);
+		emptyCase(caseNumberArray[1]);
 	}
 }
 
 function nextBomb(element,index) {
+	me = element;
 	var count = 0;
 	index = parseInt(index);
 	//console.log(index+1);
 	//console.log((index+1)%gridHeight);
 	if ((index+1) % gridHeight == 0) {
-		console.log("index+1");
-		if(randArray.includes(parseInt(index+gridHeight))){console.log(index+gridHeight); count++;}
-		if(randArray.includes(parseInt(index-gridHeight))){console.log(index-gridHeight); count++;}
-		if(randArray.includes(parseInt(index-1))){console.log(index+gridHeight); count++;}
+		if(randArray.includes(parseInt(index+gridHeight))){ count++;}
+		if(randArray.includes(parseInt(index-gridHeight))){ count++;}
+		if(randArray.includes(parseInt(index-1))){ count++;}
 		//if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
 		//if(randArray.includes(parseInt(index+(gridHeight-1)))){console.log(index+(gridHeight-1)); count++;}
 		//if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
-		if(randArray.includes(parseInt((index-gridHeight)-1))){console.log("bitemolle"); count++;}
+		if(randArray.includes(parseInt((index-gridHeight)-1))){ count++;}
+
+
+	} else if (index % gridHeight == 0) {
+
+		if(randArray.includes(parseInt(index+gridHeight))){ count++;}
+		if(randArray.includes(parseInt(index-gridHeight))){ count++;}
+		if(randArray.includes(parseInt(index+1))){ count++;}
+		if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
+		if(randArray.includes(parseInt((index-gridHeight)+1))){ count++;}
+
 	}
-	else{
-		console.log("index+>>>>>>>");
+
+	  else{
+
 		if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
 		if(randArray.includes(parseInt(index+(gridHeight-1)))){ count++;}
 		if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
@@ -99,7 +112,27 @@ function nextBomb(element,index) {
 	var tmp = 'case '+index;
 	
 	$(document.getElementsByClassName(tmp)).text(count);
-	console.log(count);
+
+	return count;
+}
+
+
+function emptyCase(index) {
+	//for (var i = 0; i < divArray.length-1; i++) {
+		
+		if($(document.getElementsByClassName('case '+index)).text() == "0"){
+			$(document.getElementsByClassName('case '+(parseInt(index)+1))).click();
+			//$(document.getElementsByClassName('case '+((index+gridHeight)+1))).click();
+			//$(document.getElementsByClassName('case '+(index+gridHeight)-1)).click();
+			//$(document.getElementsByClassName('case '+((index-gridHeight)+1))).click();
+			//$(document.getElementsByClassName('case '+((index-gridHeight)-1))).click();
+			$(document.getElementsByClassName('case '+(parseInt(index)+gridHeight))).click();
+			$(document.getElementsByClassName('case '+(parseInt(index)-gridHeight))).click();
+			$(document.getElementsByClassName('case '+(parseInt(index)-1))).click();
+			
+		//}
+	
+}
 }
 
 
