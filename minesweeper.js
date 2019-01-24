@@ -82,9 +82,6 @@ function nextBomb(element,index) {
 		if(randArray.includes(parseInt(index+gridHeight))){ count++;}
 		if(randArray.includes(parseInt(index-gridHeight))){ count++;}
 		if(randArray.includes(parseInt(index-1))){ count++;}
-		//if(randArray.includes(parseInt(index+(gridHeight+1)))){ count++;}
-		//if(randArray.includes(parseInt(index+(gridHeight-1)))){console.log(index+(gridHeight-1)); count++;}
-		//if(randArray.includes(parseInt(index-(gridHeight+1)))){ count++;}
 		if(randArray.includes(parseInt((index-gridHeight)-1))){ count++;}
 
 
@@ -120,15 +117,32 @@ function nextBomb(element,index) {
 function emptyCase(index) {
 	//for (var i = 0; i < divArray.length-1; i++) {
 		
+	sleep(1000);
+	
 		if($(document.getElementsByClassName('case '+index)).text() == "0"){
-			$(document.getElementsByClassName('case '+(parseInt(index)+1))).click();
+			console.log("first if");
+			sleep(1000);
+			if ((index+1) % gridHeight == 0) {
+				console.log("second if");
+				sleep(1000);
+				$(document.getElementsByClassName('case '+(parseInt(index)+gridHeight))).click();
+				sleep(1000);
+				$(document.getElementsByClassName('case '+(parseInt(index)-gridHeight))).click();
+				sleep(1000);
+				$(document.getElementsByClassName('case '+(parseInt(index)-1))).click();
+			}else {
+				console.log("else ");
+				sleep(1000);
+				$(document.getElementsByClassName('case '+(parseInt(index)+gridHeight))).click();
+				$(document.getElementsByClassName('case '+(parseInt(index)-gridHeight))).click();
+				$(document.getElementsByClassName('case '+(parseInt(index)-1))).click();
+				$(document.getElementsByClassName('case '+(parseInt(index)+1))).click();
+				}
 			//$(document.getElementsByClassName('case '+((index+gridHeight)+1))).click();
 			//$(document.getElementsByClassName('case '+(index+gridHeight)-1)).click();
 			//$(document.getElementsByClassName('case '+((index-gridHeight)+1))).click();
 			//$(document.getElementsByClassName('case '+((index-gridHeight)-1))).click();
-			$(document.getElementsByClassName('case '+(parseInt(index)+gridHeight))).click();
-			$(document.getElementsByClassName('case '+(parseInt(index)-gridHeight))).click();
-			$(document.getElementsByClassName('case '+(parseInt(index)-1))).click();
+			
 			
 		//}
 	
@@ -146,6 +160,14 @@ function timer(){
 			document.getElementById("sec").innerHTML=time_sec;
 			document.getElementById("min").innerHTML=time_min;}, 5);
 
+}
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
 
 
