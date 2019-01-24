@@ -11,4 +11,4 @@ function create_grid(width,height) {
 	}
 }
 
-create_grid(10,10);
+create_grid(9,9);
