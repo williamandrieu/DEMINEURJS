@@ -30,7 +30,7 @@ function create_grid(width,height,nbBomb) {
 			for (var j= 0; j < width; j++) {
 
 				var newTd = $('<td>');
-				var newDiv = $('<div>');
+				var newDiv = $('<div><img src="/Users/mbarknicolas/Desktop/Git/images/normal.png" width = 25</div>');
 				$(newTr).append(newTd);
 				$(newTd).append(newDiv);
 				divArray.push(newDiv);
