@@ -19,6 +19,23 @@
 			margin: 2px;
 			border: 2px solid white;
 		}
+		input {
+			background:url("https://www.w3schools.com/w3css/img_lights.jpg") no-repeat;
+		}
+		#trigger {
+  display: none;
+}
+.checker {
+  background-image: url(https://www.w3schools.com/w3css/img_lights.jpg);
+  background-position: left center;
+  background-size: auto 100%;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
+#trigger:checked + .checker {
+  background-position: right center;
+}
 	</style>
 </head>
 <h1><center>Démineur</center></h1>
@@ -30,113 +47,15 @@
 </select>
 <center><button>Nouvelle Partie</button></center>
 <a><left>Time : 00:00</left></a>
+
 <div id="container">
-<table>
-<tbody>
-    <div id="grid">
-<tr>
-<div style="background-color: #f80505; width: 15px;height: 15px;"></div>
-<div style="background-color: #ff0027; width: 15px;height: 15px;"></div>
-<div style="background-color: aqua; width: 15px;height: 15px;"></div>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: red; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: red; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: red; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: red; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: red; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-</tr>
-<tr>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-<td><div style="background-color: aqua; width: 15px;height: 15px;"></div></td>
-</tr>
-        </div>
-</tbody>
-</table>
-<div id="master"></div>
+	<table>
+		<tbody id="tbody">
+			<div id="grid">
+
+			</div>
+		</tbody>
+	</table>
 </div>
 <script type="text/javascript" src="minjesweeper.js"></script>
 <body>
